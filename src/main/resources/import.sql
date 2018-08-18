@@ -26,10 +26,12 @@ insert into Cliente (id, nome, email, cpf_ou_cnpj, tipo) values (null,'Andréa A
 insert into Cliente (id, nome, email, cpf_ou_cnpj, tipo) values (null,'ASM ASSET', 'asm@hotmail.com', '02.678.955/0002-09', 2);
 -- ----------------------------------------------------------------
 insert into Telefone (cliente_id, telefones) values (1,'9876-76144');
+insert into Telefone (cliente_id, telefones) values (1,'2615-2878');
 insert into Telefone (cliente_id, telefones) values (2,'9948-09275');
 insert into Telefone (cliente_id, telefones) values (3,'NAO DISPONIVEL');
 -- -----------------------------------------------------------------
 insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Avenida Joaquim Oliveira', '4876', 'casa 02','Boa Vista', '24462-142', 1, 1);
+insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Avenida Presidente Vargas', '463', '17º','Centro', '20071-908', 1, 2);
 insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Avenida Joaquim Oliveira', '4876', 'casa 02','Boa Vista', '24462-142', 2, 1);
 insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Rua 93A', '162', 'Parte','Vila Santa Cecília', '27261-200', 3, 3);
 -- ------------------------------------------------------------------

@@ -11,11 +11,11 @@ import com.lp.cursomc.services.exceptions.ObjectNotFoundException;
 public class CategoriaService {
 	
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaRepository categoriaRepository;
 
 	public Categoria buscar(Integer id) {
 		
-		Categoria obj = repository.findOne(id);
+		Categoria obj = categoriaRepository.findOne(id);
 		if(obj == null) {
 			throw new ObjectNotFoundException("Objeto não encontrado! "+id
 					+ ", Tipo: "+Categoria.class.getName());
