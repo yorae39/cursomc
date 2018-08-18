@@ -13,3 +13,4 @@ insert into Produto_Categoria (produto_id, categoria_id) values (3,1);
 insert into Produto_Categoria (produto_id, categoria_id) values (2,2);
 -- -------------------------------------------------------------
 
+
