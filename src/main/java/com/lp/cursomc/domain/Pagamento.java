@@ -10,17 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lp.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)//USADO PARA FAZER A HERANÇA COM TABELAS SEPARADAS
-public class Pagamento implements Serializable {
+public abstract class Pagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;
 	private Integer estado;
 
+	@JsonBackReference //NÃO PERMITE O PEDIDO SER SERIALIZADO
 	//UM PRA UM TEM O MESMO ID ENTRE SI
 	@OneToOne
 	@JoinColumn(name="pedido_id")

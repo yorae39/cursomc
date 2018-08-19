@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Pedido implements Serializable {
@@ -19,12 +23,16 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date instante;
 
+	@JsonManagedReference //PERMITE O PAGAMENTO SER SERIALIZADO
 	//cascade=CascadeType.ALL: NECESSÁRIO PARA IMPEDIR ERRO DE ENTIDADE TRANSIENT AO SALVAR NO BANCO
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
 
+	@JsonManagedReference//PERMITE O CLIENTE SER SERIALIZADO
 	@ManyToOne()
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
@@ -37,11 +45,10 @@ public class Pedido implements Serializable {
 
 	}
 
-	public Pedido(Integer id, Date instante, Pagamento pagamento, Cliente cliente, Endereco enderecoDeEntrega) {
+	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoDeEntrega) {
 		super();
 		this.id = id;
 		this.instante = instante;
-		this.pagamento = pagamento;
 		this.cliente = cliente;
 		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
