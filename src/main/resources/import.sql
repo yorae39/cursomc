@@ -35,6 +35,16 @@ insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_
 insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Avenida Joaquim Oliveira', '4876', 'casa 02','Boa Vista', '24462-142', 2, 1);
 insert into Endereco (id, logradouro, numero, complemento, bairro, cep, cliente_id, cidade_id ) values (null,'Rua 93A', '162', 'Parte','Vila Santa Cecília', '27261-200', 3, 3);
 -- ------------------------------------------------------------------
+insert into Pedido (id, instante, cliente_id, endereco_de_entrega_id) values (null,'2018-08-18', 1,1);
+insert into Pedido (id, instante, cliente_id, endereco_de_entrega_id) values (null,'2018-08-19', 1,2);
+-- ------------------------------------------------------------------
+insert into Pagamento(pedido_id, estado) values (1, 2);
+insert into Pagamento(pedido_id, estado) values (2, 1);
+-- ------------------------------------------------------------------
+insert into Pagamento_Com_Cartao(pedido_id, numero_de_parcelas) values (1, 1);
+insert into Pagamento_Com_Cartao(pedido_id, numero_de_parcelas) values (2, 3);
+
+
 
 
 
