@@ -14,7 +14,7 @@ public class PedidoService {
 	@Autowired
 	private PedidoRepository pedidoRepository;
 
-	public Pedido buscar(Integer id) {
+	public Pedido find(Integer id) {
 		
 		Pedido obj = pedidoRepository.findOne(id);
 		if(obj == null) {
