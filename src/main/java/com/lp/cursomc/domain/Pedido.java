@@ -21,7 +21,6 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Pedido implements Serializable {
@@ -35,13 +34,11 @@ public class Pedido implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date instante;
 
-	@JsonManagedReference // PERMITE O PAGAMENTO SER SERIALIZADO
 	// cascade=CascadeType.ALL: NECESSÁRIO PARA IMPEDIR ERRO DE ENTIDADE TRANSIENT
 	// AO SALVAR NO BANCO
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
 	private Pagamento pagamento;
-
-	@JsonManagedReference // PERMITE O CLIENTE SER SERIALIZADO
+	
 	@ManyToOne()
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
