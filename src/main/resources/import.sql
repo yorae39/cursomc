@@ -42,7 +42,7 @@ insert into Pagamento(pedido_id, estado) values (1, 2);
 insert into Pagamento(pedido_id, estado) values (2, 1);
 -- ------------------------------------------------------------------
 insert into Pagamento_Com_Cartao(pedido_id, numero_de_parcelas) values (1, 1);
-insert into Pagamento_Com_Cartao(pedido_id, numero_de_parcelas) values (2, 3);
+insert into Pagamento_Com_Boleto(pedido_id, data_vencimento, data_pagamento) values (2, '2018-08-21', null);
 -- -------------------------------------------------------------------
 insert into Item_Pedido (desconto, quantidade, preco, pedido_id, produto_id) values (0.00, 1, 2000.00, 1, 1);
 insert into Item_Pedido (desconto, quantidade, preco, pedido_id, produto_id) values (0.00, 2, 80.00, 1, 3);
