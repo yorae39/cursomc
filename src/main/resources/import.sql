@@ -1,10 +1,14 @@
 --TESTES DE INSERT
 insert into Categoria (id, nome) values (null, 'Infomárica');
 insert into Categoria (id, nome) values (null, 'Escritório');
-
+insert into Categoria (id, nome) values (null, 'Cama, mesa e banho');
+insert into Categoria (id, nome) values (null, 'Eletrônicos');
+insert into Categoria (id, nome) values (null, 'Jardinagem');
+insert into Categoria (id, nome) values (null, 'Decoração');
+insert into Categoria (id, nome) values (null, 'Perfumaria');
 -- -------------------------------------------------------------
 insert into Produto (id, nome, preco) values (null, 'Computador', 2000.00);
-insert into Produto (id, nome, preco) values (null, 'Impressoa', 800.00);
+insert into Produto (id, nome, preco) values (null, 'Impressora', 800.00);
 insert into Produto (id, nome, preco) values (null, 'Mouse', 80.00);
 -- -------------------------------------------------------------
 insert into Produto_Categoria (produto_id, categoria_id) values (1,1);
