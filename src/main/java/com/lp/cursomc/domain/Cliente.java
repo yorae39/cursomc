@@ -36,7 +36,7 @@ public class Cliente implements Serializable {
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
 
-	@JsonIgnore // NÃO PERMITE O PEDIDO SER ERIALIZADO
+	@JsonIgnore // NÃO PERMITE O PEDIDO SER SERIALIZADO
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 
