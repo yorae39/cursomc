@@ -17,51 +17,54 @@ import com.lp.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
-	
+
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 
 	public Categoria find(Integer id) {
-		
+
 		Categoria obj = categoriaRepository.findOne(id);
-		if(obj == null) {
-			throw new ObjectNotFoundException("Objeto não encontrado! "+id
-					+ ", Tipo: "+Categoria.class.getName());
+		if (obj == null) {
+			throw new ObjectNotFoundException("Objeto não encontrado! " + id + ", Tipo: " + Categoria.class.getName());
 		}
 		return obj;
 	}
-	
+
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return categoriaRepository.save(obj);
 	}
-	
-	
+
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
 		return categoriaRepository.save(obj);
 	}
 
 	public void delete(Integer id) {
 		find(id);
 		try {
-			categoriaRepository.delete(id);		
+			categoriaRepository.delete(id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
 		}
-	
+
 	}
 
 	public List<Categoria> findAll() {
 		return categoriaRepository.findAll();
 	}
-	
-	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+
+	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return categoriaRepository.findAll(pageRequest);
 	}
-	
+
 	public Categoria fromDto(CategoriaDTO objDto) {
 		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
